@@ -12,6 +12,8 @@
 # print(sentence[-1])
 
 #3
+
+
 sentence=input("Write a sentence of 10 characteres ")
 
 new_string = ""
@@ -20,5 +22,8 @@ for x in sentence:
     new_string += x
     print(new_string)
 
+list_sentence=list(sentence)
 
-
+import random 
+random.shuffle(list_sentence)
+print(list_sentence)

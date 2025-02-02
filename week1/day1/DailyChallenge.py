@@ -13,19 +13,12 @@
 
 #3
 sentence=input("Write a sentence of 10 characteres ")
-current_character=sentence[0]
-next_character=sentence[0+1]
-string=""
 
-for i in range(len(sentence)):
-    sentence=input("Write a sentence of 10 characteres ")
-    current_character=sentence[0]
-    next_character=sentence[0+1]
-    string=""
+new_string = ""
 
-    print((current_character)+(next_character))
+for x in sentence:
+    new_string += x
+    print(new_string)
 
-
-    
 
 

@@ -1,0 +1,7 @@
+Define the following value types:
+
+string: sequence of characters between quotation marks(single or double)
+integer: numbers with no decimals that we can use for math operations
+float: numbers with decimals that we can use for math operations
+boolean:to check conditions and see if the result is True meaning 1 or False meaning 0
+

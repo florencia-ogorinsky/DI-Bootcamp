@@ -27,3 +27,4 @@ list_sentence=list(sentence)
 import random 
 random.shuffle(list_sentence)
 print(list_sentence)
+

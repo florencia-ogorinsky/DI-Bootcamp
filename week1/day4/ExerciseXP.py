@@ -311,17 +311,17 @@ for x in range(len(data)):
         print("You are wrong! the correct answer is", data[x]['answer'])
         if len(wrong_answers)>3:
             print("you had more than 3 incorrect answers, lets play again!")
-            
+            break
 
-            for x in range(len(data)):
-                user_answer=input((data[x]['question']))
-                if data[x]['answer']!=user_answer:
-                    wrong_answers.append(user_answer)
-                    print("You are wrong! the correct answer is", data[x]['answer'])
+            # for x in range(len(data)):
+            #     user_answer=input((data[x]['question']))
+            #     if data[x]['answer']!=user_answer:
+            #         wrong_answers.append(user_answer)
+            #         print("You are wrong! the correct answer is", data[x]['answer'])
 
-                else:
-                    good_answers.append(user_answer)
-                x+=1    
+            #     else:
+            #         good_answers.append(user_answer)
+            #     x+=1    
                 
     else:
         good_answers.append(user_answer)
@@ -336,6 +336,11 @@ print('correct answers:', good_answers)
 
 print("your amount of wrong answers is: ",len(wrong_answers))
 print("your amount of correct answers is: ", len(good_answers))
+
+
+
+
+
 
 
 

@@ -40,7 +40,7 @@ for x in listn:
 print(dictt)
 
 
-for k, v in dictt.items():  # for name, age in dictionary.iteritems():  (for Python 2.x)
+for k, v in dictt.items(): 
     if v == max(dictt.values()):
         print('longest word is', k)
         break

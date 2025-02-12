@@ -131,9 +131,14 @@ print(today)
 # Create a function that displays the amount of time left from now until January 1st.
 # (Example: the 1st of January is in 10 days and 10:34:01hours).
 
-diff=today-datetime.datetime(2025,1,1)
-print(diff)
+now= datetime.datetime.now()
 
+diff=datetime.datetime(2026,1,1)-today
+
+hours=(diff.seconds//3600)
+ 
+
+print(f"January first is in {diff} and {hours} hours")
 
 
 # Exercise 6 : Birthday and minutes

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>JavaScript Data Types</title>
+</head>
+<body>
+    <h1>Check the Console!</h1>
+    <div id="output"></div>
+    <script>
+        let myString = "Hello, JavaScript!"; // String
+        let myNumber = 42;                  // Number
+        let myBoolean = true;               // Boolean
+        let myUndefined;                    // Undefined
+        let myNull = null;                  // Null
+        let output= "myString:"+ myString+ "Type:"+ typeof myString+
+                    "<br>myNumber:"+ myNumber+ "Type:"+ typeof myNumber+
+                    "<br>myBoolean:"+ myBoolean+ "Type:"+ typeof myBoolean+
+                    "<br>myUndefined:"+ myUndefined+ "Type:"+ typeof myUndefined+
+                    "<br>myNull:"+ myNull+ "Type:"+ typeof myNull;
+        
+
+        document.getElementById("output").innerHTML=output;
+
+        console.log("myString:", myString, "Type:", typeof myString);
+        console.log("myNumber:", myNumber, "Type:", typeof myNumber);
+        console.log("myBoolean:", myBoolean, "Type:", typeof myBoolean);
+        console.log("myUndefined:", myUndefined, "Type:", typeof myUndefined);
+        console.log("myNull:", myNull, "Type:", typeof myNull);
+        
+        // demonstrating other data types.
+        let myObject = {name: "John", age: 30}; // object
+        let myArray = [1,2,3]; // array
+        let mySymbol = Symbol("description"); // Symbol
+        let myBigInt = 9007199254740991n; //BigInt
+        
+        console.log("myObject:", myObject, "Type:", typeof myObject);
+        console.log("myArray:", myArray, "Type:", typeof myArray);
+        console.log("mySymbol:", mySymbol, "Type:", typeof mySymbol);
+        console.log("myBigInt:", myBigInt, "Type:", typeof myBigInt);
+    </script>
+</body>
+</html>
+

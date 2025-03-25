@@ -202,7 +202,6 @@ boolean_columns = data.select_dtypes(include=['bool']).columns
 print(data[boolean_columns])
 
 
-
 # %%
 # Convert boolean columns to integers (0 or 1)
 for col in boolean_columns:
@@ -263,4 +262,3 @@ if neighbourhood_group_cols:
 else:
     print("No one-hot encoded columns for 'neighbourhood group' found. Skipping subgroup analysis.")
 
-    

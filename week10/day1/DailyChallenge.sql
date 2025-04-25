@@ -82,14 +82,59 @@ select * from employees
 
 --Detect and address any outliers that may skew the analysis.
 
+-- Calculate Q1 (25th percentile) and Q3 (75th percentile)
+SELECT
+    (SELECT salary
+     FROM employees
+     ORDER BY salary
+     LIMIT 1 OFFSET (SELECT ROUND(COUNT(*) * 0.25) FROM employees)) AS Q1,
+    (SELECT salary
+     FROM employees
+     ORDER BY salary
+     LIMIT 1 OFFSET (SELECT ROUND(COUNT(*) * 0.75) FROM employees)) AS Q3;
+
+-- Calculate the Interquartile Range (IQR)
+SELECT
+    (SELECT salary
+     FROM employees
+     ORDER BY salary
+     LIMIT 1 OFFSET (SELECT ROUND(COUNT(*) * 0.75) FROM employees)) - 
+    (SELECT salary
+     FROM employees
+     ORDER BY salary
+     LIMIT 1 OFFSET (SELECT ROUND(COUNT(*) * 0.25) FROM employees)) AS IQR;
+
+-- Detect outliers based on the 1.5 * IQR rule
 SELECT employee_id, salary
 FROM employees
-WHERE salary < 5000 OR salary > 200000;
+WHERE salary < 
+    (SELECT salary
+     FROM employees
+     ORDER BY salary
+     LIMIT 1 OFFSET (SELECT ROUND(COUNT(*) * 0.25) FROM employees)) - 
+    1.5 * (SELECT salary
+           FROM employees
+           ORDER BY salary
+           LIMIT 1 OFFSET (SELECT ROUND(COUNT(*) * 0.75) FROM employees)) - 
+    (SELECT salary
+     FROM employees
+     ORDER BY salary
+     LIMIT 1 OFFSET (SELECT ROUND(COUNT(*) * 0.25) FROM employees))
+   OR salary > 
+    (SELECT salary
+     FROM employees
+     ORDER BY salary
+     LIMIT 1 OFFSET (SELECT ROUND(COUNT(*) * 0.75) FROM employees)) + 
+    1.5 * (SELECT salary
+           FROM employees
+           ORDER BY salary
+           LIMIT 1 OFFSET (SELECT ROUND(COUNT(*) * 0.75) FROM employees)) - 
+    (SELECT salary
+     FROM employees
+     ORDER BY salary
+     LIMIT 1 OFFSET (SELECT ROUND(COUNT(*) * 0.25) FROM employees));
 
-
-UPDATE employees
-SET salary = (SELECT AVG(salary) FROM employees)
-WHERE salary < 5000 OR salary > 200000;
+select * from employees
 
 --Standardize and normalize data where applicable to ensure consistency.
 
